@@ -1,3 +1,4 @@
+buildCmd: mvn compile -pl hadoop-common-project/hadoop-auth -am -DskipTests -e -X
 testCmd: true
 lineLength: 4096
 skipVerification: true
@@ -173,3 +174,9 @@ phases:
       cover-function-only: false
       # instrument the file as opposed to the function only
       cover-only: file
+units:
+ - target:
+   - dir: hadoop-common-project/hadoop-auth/target/classes
+     file: org/apache/hadoop/security/authentication/server/AuthenticationHandlerUtil.class
+     sourceDir: hadoop-common-project/hadoop-auth/src/main/java
+     sourceFile: org/apache/hadoop/security/authentication/server/AuthenticationHandlerUtil.java
